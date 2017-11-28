@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://unpkg.com/vue@2.4.2/dist/vue.js"></script>
+    <title>Vue.js</title>
+</head>
+
+<body>
+
+    <div id="app">
+        <h1 v-once>{{title}}</h1>
+        <p>{{title}}</p>
+        <a v-bind:href=link>google</a>
+        <p v-html='htmllink'>
+        </p>
+        <p>VueJS is pretty cool - {{name}} ({{age}})</p>
+        <p>{{ agex3(age) }}</p>
+        <p>{{ myRandom( )}}</p>
+        <div>
+            <img v-bind:src="img1" style="width: 100px; height: 100px;" alt="">
+        </div>
+        <input type="text" v-on:input="changeTitle">
+
+    </div>
+
+</body>
+
+</html>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            title: 'MyVue.js',
+            msg: 'This is my first Vue.js',
+            link: 'https://www.google.com',
+            htmllink: '<a href="https://www.cpe.eng.cmu.ac.th">CPE</a>',
+            name: 'MyVue',
+            age: 20
+        },
+        methods: {
+            sayMyName: function () {
+                return 'MyVue';
+            },
+            changeTitle:     function (e) {
+                this.title = e.target.value;
+            },
+            agex3: function (e) {
+                return e * 3;
+            },
+            myRandom: function () {
+                return Math.random();
+            }
+        }
+    })
+</script>

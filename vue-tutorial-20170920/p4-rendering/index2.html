@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <title>P4-Rendering</title>
+</head>
+
+<body>
+    <div id="app">
+        <h1>Ingredient List</h1>
+        <ul>
+            <li v-for="(ingredient, index) in ingredients">{{ index }}. {{ ingredient }}</li>
+        </ul>
+
+        <h1>Person List</h1>
+        <ul>
+            <!-- <li v-for="person in persons">{{ person.name }}, {{ person.age }}, {{ person.color }}</li> -->
+            <li v-for="person in persons">
+                <div v-for="(value, key, index) in person">
+                    {{ key }} : {{ value }} - ({{ index }})
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                ingredients: ['meat', 'fruit', 'cookies'],
+                persons: [{
+                        name: 'Max',
+                        age: 27,
+                        color: 'red'
+                    },
+                    {
+                        name: 'Anna',
+                        age: 'unknown',
+                        color: 'blue'
+                    }
+                ]
+            }
+        });
+    </script>
+</body>
+
+</html>
